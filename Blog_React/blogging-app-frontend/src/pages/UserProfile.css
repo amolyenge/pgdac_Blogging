@@ -1,0 +1,128 @@
+/* Container with left + right panels */
+.userprofile-container {
+  display: flex;
+  gap: 32px;
+  padding: 30px 50px;
+  min-height: calc(100vh - 200px); /* ensures footer stays at bottom */
+}
+
+/* Left panel */
+.user-left {
+  flex: 1;
+  border-right: 2px solid #ccc;
+  padding-right: 20px;
+}
+
+.user-left h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.user-left p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* Blog list */
+.user-left h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.user-blog-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap; /* allow wrapping on narrow screens */
+}
+
+.user-blog-title {
+  font-weight: 700; /* bold text */
+  flex: 2;
+  word-break: break-word; /* wrap long titles */
+}
+
+/* Buttons next to each blog */
+.user-blog-actions {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.user-blog-actions button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #3a5cff;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.user-blog-actions button:hover {
+  background: #2a4ad1;
+}
+
+/* Right panel */
+.user-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 2px solid #ccc;
+  min-height: 300px;
+}
+
+/* Visible vs hidden states */
+.user-right.hidden {
+  opacity: 0.6;
+}
+
+/* Placeholder text when not editing */
+.placeholder-text {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+  margin-top: 40px;
+  font-style: italic;
+}
+
+/* Form elements in right */
+.user-right input,
+.user-right textarea,
+.user-right select {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border: 1.5px solid #aaa;
+  border-radius: 6px;
+}
+
+.user-right textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+/* Update button */
+.btn-update {
+  width: 150px;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.btn-update:hover {
+  background: #1e7e34;
+}
+

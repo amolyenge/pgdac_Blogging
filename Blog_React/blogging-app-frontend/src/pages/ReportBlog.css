@@ -1,0 +1,55 @@
+.reportblog-container {
+  padding: 40px 60px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 75vh;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reportblog-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  color: #c62828;
+}
+
+.report-textarea {
+  width: 100%;
+  min-height: 180px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 18px;
+  resize: vertical;
+}
+
+.report-error {
+  color: #e63946;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.report-success {
+  color: #2a9d8f;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.report-submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: #c62828;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.report-submit-btn:hover {
+  background: #b71c1c;
+}

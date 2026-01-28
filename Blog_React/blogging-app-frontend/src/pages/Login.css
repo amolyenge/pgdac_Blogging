@@ -1,0 +1,170 @@
+/* PAGE */
+.login-container {
+  min-height: 100vh;
+  background: #f5f7ff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.login-header {
+  height: 80px;
+  background: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+}
+
+.brand-name {
+  font-size: 30px;
+  font-weight: 800;
+  color: #e63946;
+}
+
+.header-text {
+  text-align: center;
+  font-size: 16px;
+  color: #2a9d8f;
+  font-style: italic;
+}
+
+/* LOGIN WRAPPER */
+.login-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN CARD */
+.login-card {
+  width: 380px;
+  background: white;
+  border-radius: 30px;
+  padding: 40px 35px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  animation: fadeUp 0.8s ease;
+}
+
+.login-quote {
+  text-align: center;
+  color: #a4161a;
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-group label {
+  width: 90px;
+  font-weight: 600;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid #000;
+  outline: none;
+}
+
+/* BUTTON */
+.login-btn {
+  margin-top: 20px;
+  align-self: center;
+  padding: 12px 40px;
+  border-radius: 14px;
+  border: 3px solid #28a745;
+  background: white;
+  color: #a4161a;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #28a745;
+  color: white;
+}
+
+/* LINKS */
+.login-links {
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.login-links p {
+  margin: 8px 0;
+  color: #a4161a;
+}
+
+.login-links a {
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .login-card {
+    width: 90%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-group label {
+    margin-bottom: 6px;
+  }
+}

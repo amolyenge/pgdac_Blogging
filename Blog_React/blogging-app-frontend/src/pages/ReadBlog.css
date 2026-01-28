@@ -1,0 +1,164 @@
+/* Overall Container */
+.readblog-container {
+  padding: 40px 60px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto; /* Center content */
+}
+
+/* Blog Title */
+.readblog-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+/* Meta Information */
+.readblog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Blog Image */
+.readblog-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  border: 2px solid #ddd;
+}
+
+/* Content Area */
+.readblog-content {
+  font-size: 18px;
+  line-height: 1.8; /* Nice spacing between lines */
+  color: #333;
+  margin-bottom: 32px;
+  word-break: break-word;
+}
+
+/* Paragraph Styling */
+.readblog-content p {
+  margin-bottom: 18px;
+}
+
+/* If the blog content has bold text / headers */
+.readblog-content strong,
+.readblog-content b {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Action Buttons (Like, Comment, Share, Report) */
+.readblog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.action-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid #3a5cff;
+  background: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a5cff;
+}
+
+.action-btn:hover {
+  background: #3a5cff;
+  color: white;
+}
+
+/* Status Feedback (like / error messages) */
+.status-message {
+  margin-top: 14px;
+  font-size: 17px;
+  color: green;
+  font-weight: 600;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 32px;
+  border-top: 1px solid #ccc;
+  padding-top: 24px;
+}
+
+.comment-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.new-comment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.new-comment input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+}
+
+.new-comment button {
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #3a5cff;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Share Dropdown Container */
+.share-dropdown-container {
+  position: relative;
+}
+
+/* Share Dropdown Options */
+.share-options {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  width: 180px;
+  z-index: 100;
+}
+
+.share-options p {
+  margin: 0;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.share-options p:hover {
+  background: #f2f2f2;
+}

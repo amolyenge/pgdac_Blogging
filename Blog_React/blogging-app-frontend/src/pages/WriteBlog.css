@@ -1,0 +1,123 @@
+/* ---------------- WriteBlog Page Container ---------------- */
+
+.writeblog-container {
+  padding: 30px 50px;
+  background: var(--bg);
+  color: var(--text);
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Title */
+.writeblog-container h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #2a2a2a;
+}
+
+/* Labels */
+.field-label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Text Inputs */
+.input-text,
+.input-file,
+.input-select,
+.textarea-content {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #aaa;
+  margin-top: 6px;
+  background: white;
+}
+
+/* Select Dropdown */
+.input-select {
+  cursor: pointer;
+}
+
+/* Textarea for Blog Content */
+.textarea-content {
+  height: 240px;
+  resize: vertical;
+}
+
+/* ---------------- Buttons ---------------- */
+.writeblog-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.btn-clear,
+.btn-post {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+/* Clear Button */
+.btn-clear {
+  background: #e63946;
+  color: white;
+}
+
+.btn-clear:hover {
+  background: #c62828;
+}
+
+/* Post Button */
+.btn-post {
+  background: #3a5cff;
+  color: white;
+}
+
+.btn-post:hover {
+  background: #2a4ad1;
+}
+
+/* ---------------- Messages ---------------- */
+.success-msg,
+.error-msg {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.success-msg {
+  color: #2a9d8f;
+}
+
+.error-msg {
+  color: #e63946;
+}
+
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 768px) {
+  .writeblog-container {
+    padding: 20px;
+  }
+
+  .btn-clear,
+  .btn-post {
+    width: 100%;
+    text-align: center;
+  }
+}
