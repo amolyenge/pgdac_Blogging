@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\dtos\\updateblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\dtos\\updateblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|c:\\users\\amol yenge\\desktop\\blogging_application\\bloggingapp\\bloggingapp.api\\dtos\\createblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F832701-743D-4A5C-8DDD-DA071C62D6AB}|BloggingApp.API\\BloggingApp.API.csproj|solutionrelative:bloggingapp.api\\dtos\\createblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "BloggingApp.API\\Controllers\\ReportController.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAUwHYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T00:36:30.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UpdateBlogDto.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\DTOs\\UpdateBlogDto.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\DTOs\\UpdateBlogDto.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\DTOs\\UpdateBlogDto.cs",
+              "RelativeToolTip": "BloggingApp.API\\DTOs\\UpdateBlogDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T00:09:05.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Data\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\Data\\DataSeeder.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Data\\DataSeeder.cs",
+              "RelativeToolTip": "BloggingApp.API\\Data\\DataSeeder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T14:03:29.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\Program.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Program.cs",
+              "RelativeToolTip": "BloggingApp.API\\Program.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T13:07:43.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "BloggingApp.API\\Controllers\\BlogController.cs",
+              "ViewState": "AgIAAAIBAAAAAAAAAAAqwLIAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T13:06:22.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateBlogDto.cs",
+              "DocumentMoniker": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\DTOs\\CreateBlogDto.cs",
+              "RelativeDocumentMoniker": "BloggingApp.API\\DTOs\\CreateBlogDto.cs",
+              "ToolTip": "C:\\Users\\amol yenge\\Desktop\\Blogging_Application\\BloggingApp\\BloggingApp.API\\DTOs\\CreateBlogDto.cs",
+              "RelativeToolTip": "BloggingApp.API\\DTOs\\CreateBlogDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T13:05:36.603Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
