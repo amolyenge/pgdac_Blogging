@@ -21,3 +21,6 @@ wwwroot\uploads\blogs\59d3a059-97f4-4538-95cf-55693e03f738.jpg
 wwwroot\uploads\blogs\eaa5a1c3-2ef0-4c76-8e3a-4e7b589a2786.jpeg
 wwwroot\uploads\blogs\c81853a8-9b29-4c9b-989e-7ec9a624211e.jpg
 wwwroot\uploads\blogs\6797d33d-230e-425c-b72d-1ca227229ada.jpeg
+wwwroot\uploads\blogs\868fe7f4-7bdf-4aa1-95e4-2092c27b4deb.png
+wwwroot\uploads\blogs\e62b34e8-fd30-4d90-93de-7cc91c352e44.jpeg
+wwwroot\uploads\blogs\d8901e62-c2f7-4058-9395-dc463f68f4aa.jpeg

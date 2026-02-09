@@ -3,6 +3,7 @@ using System;
 using BloggingApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BloggingApp.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260129064148_AddThumbnailToBlog")]
+    partial class AddThumbnailToBlog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,9 +88,6 @@ namespace BloggingApp.API.Migrations
 
                     b.Property<int>("BlogId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsResolved")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Reason")
                         .IsRequired()

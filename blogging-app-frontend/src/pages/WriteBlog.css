@@ -58,7 +58,8 @@
   margin-top: 20px;
   display: flex;
   gap: 18px;
-  justify-content: center;
+  justify-content: center; /* center all by default */
+  align-items: center;
 }
 
 .btn-clear,
@@ -72,6 +73,12 @@
   transition: 0.3s ease;
 }
 
+/* Grammar + Post group aligned together */
+.btn-group-right {
+  display: flex;
+  gap: 12px;
+}
+
 /* Clear Button */
 .btn-clear {
   background: #e63946;
@@ -80,6 +87,23 @@
 
 .btn-clear:hover {
   background: #c62828;
+}
+
+/* Small Green Grammar Button */
+.btn-grammar-check {
+  background: #28a745;
+  color: white;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-grammar-check:hover {
+  background: #218838;
 }
 
 /* Post Button */
@@ -116,8 +140,14 @@
   }
 
   .btn-clear,
-  .btn-post {
+  .btn-post,
+  .btn-grammar-check {
     width: 100%;
     text-align: center;
+  }
+
+  .btn-group-right {
+    flex-direction: column;
+    gap: 10px;
   }
 }

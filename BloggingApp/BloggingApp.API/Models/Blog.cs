@@ -16,7 +16,7 @@ namespace BloggingApp.API.Models
         [Required]
         public string Category { get; set; }
 
-        // ✅ NEW: Thumbnail URL
+        //  Thumbnail URL
         public string? ThumbnailUrl { get; set; }
 
         public int LikesCount { get; set; } = 0;

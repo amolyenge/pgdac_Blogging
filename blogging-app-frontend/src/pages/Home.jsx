@@ -6,6 +6,7 @@ import {
   fetchAllBlogs,
   fetchTrendingBlogs,
   fetchCategoryBlogs,
+  searchBlogsByAuthor
 } from "../api/blogApi";
 import "./Home.css";
 
@@ -15,9 +16,10 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // mode: "all", "trending", "category"
   const [mode, setMode] = useState("all");
   const [category, setCategory] = useState("");
+
+  const [searchText, setSearchText] = useState("");
 
   const loadAll = async () => {
     setLoading(true);
@@ -55,10 +57,32 @@ const Home = () => {
     }
   };
 
+  const handleSearch = async () => {
+    // If the search box is empty, just reload All
+    if (!searchText.trim()) {
+      setMode("all");
+      loadAll();
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await searchBlogsByAuthor(searchText.trim());
+      setBlogs(res.data);
+      setMode("search"); // optional if you want to track mode
+    } catch {
+      setBlogs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
+    // Load according to mode
     if (mode === "all") loadAll();
     if (mode === "trending") loadTrending();
     if (mode === "category") loadCategory(category);
+    // We *don’t* run search in useEffect
   }, [mode, category]);
 
   return (
@@ -66,6 +90,20 @@ const Home = () => {
       <Header setMode={setMode} setCategory={setCategory} />
 
       <div className="home-container">
+
+        {/* ===== SEARCH BAR ===== */}
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by author..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button className="btn-search" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+
         {loading && <p className="status">Loading blogs...</p>}
 
         {!loading && blogs.length === 0 && (
@@ -75,12 +113,13 @@ const Home = () => {
         <div className="blog-grid">
           {blogs.map((blog) => (
             <div key={blog.id} className="blog-card">
-              <img
-                src={blog.thumbnailUrl}
-                alt={blog.title}
-                className="blog-img"
-                onError={(e) => (e.target.style.display = "none")}
-              />
+              {blog.thumbnailUrl && (
+                <img
+                  src={blog.thumbnailUrl}
+                  alt={blog.title}
+                  className="blog-img"
+                />
+              )}
 
               <h3 className="blog-title">{blog.title}</h3>
 

@@ -18,5 +18,8 @@ namespace BloggingApp.API.Models
 
         [ForeignKey("UserId")]
         public User User { get; set; }
+
+        public bool IsResolved { get; set; } = false;
+
     }
 }

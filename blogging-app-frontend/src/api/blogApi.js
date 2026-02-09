@@ -44,3 +44,11 @@ export const updateBlog = (id, formData) => {
 export const deleteBlog = (id) => {
   return axiosInstance.delete(`/blogs/${id}`);
 };
+
+export const searchBlogsByAuthor = (authorName) => {
+  return axiosInstance.get(`/blogs/search/${authorName}`);
+};
+
+export const checkGrammar = (text) => {
+  return axiosInstance.post(`/ai/grammar-check`, { text });
+};

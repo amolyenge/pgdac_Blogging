@@ -32,7 +32,6 @@ const WriteBlog = () => {
       }
 
       if (ext === "pdf") {
-        // PDF import fallback: asks user to copy/paste
         alert(
           "PDF import isn’t supported in this version. Please open your PDF and copy text into the editor."
         );
@@ -100,6 +99,32 @@ const WriteBlog = () => {
     }
   };
 
+  const handleGrammarCheck = async () => {
+    setMessage("");
+    setError("");
+
+    if (!content.trim()) {
+      setError("Please enter content to check grammar.");
+      return;
+    }
+
+    try {
+      const res = await axiosInstance.post("/ai/grammar-check", {
+        text: content,
+      });
+
+      if (res.data && res.data.correctedText) {
+        setContent(res.data.correctedText);
+        setMessage("Grammar corrected successfully!");
+      } else {
+        setError("No corrected text received.");
+      }
+    } catch (err) {
+      console.error("Grammar check error:", err);
+      setError("Failed to check grammar.");
+    }
+  };
+
   return (
     <>
       <Header setMode={() => {}} setCategory={() => {}} />
@@ -141,7 +166,9 @@ const WriteBlog = () => {
           <option value="Technology">Technology</option>
           <option value="Lifestyle">Lifestyle</option>
           <option value="Sports">Sports</option>
-          <option value="Religion And Traditions">Religion And Traditions</option>
+          <option value="Religion And Traditions">
+            Religion And Traditions
+          </option>
           <option value="Business">Business</option>
           <option value="Healthcare">Healthcare</option>
         </select>
@@ -170,9 +197,19 @@ const WriteBlog = () => {
           <button className="btn-clear" onClick={handleClear}>
             Clear
           </button>
-          <button className="btn-post" onClick={handlePost}>
-            Post
-          </button>
+
+          <div className="btn-group-right">
+            <button
+              className="btn-grammar-check"
+              onClick={handleGrammarCheck}
+            >
+              Check Grammar
+            </button>
+
+            <button className="btn-post" onClick={handlePost}>
+              Post
+            </button>
+          </div>
         </div>
       </div>
 

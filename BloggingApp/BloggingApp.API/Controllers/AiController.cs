@@ -6,12 +6,12 @@ namespace BloggingApp.API.Controllers
 {
     [ApiController]
     [Route("api/ai")]
-    [Authorize] // only logged-in users
+    [Authorize]
     public class AiController : ControllerBase
     {
-        private readonly GeminiAiService _aiService;
+        private readonly LanguageToolService _aiService;
 
-        public AiController(GeminiAiService aiService)
+        public AiController(LanguageToolService aiService)
         {
             _aiService = aiService;
         }
@@ -23,6 +23,7 @@ namespace BloggingApp.API.Controllers
                 return BadRequest("Text is required");
 
             var corrected = await _aiService.CorrectGrammar(request.Text);
+
             return Ok(new { correctedText = corrected });
         }
     }

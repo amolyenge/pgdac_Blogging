@@ -24,16 +24,25 @@ namespace BloggingApp.API.Controllers
         // =========================
         [Authorize]
         [HttpPost]
-        [Authorize]
-        [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> CreateBlog(
-    [FromForm] CreateBlogDto dto,
-    IFormFile thumbnail
-)
+     [FromForm] CreateBlogDto dto,
+     IFormFile thumbnail
+ )
         {
             if (thumbnail == null || thumbnail.Length == 0)
                 return BadRequest("Thumbnail image is required");
+
+            // ✅ Validate file extension
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var extension = Path.GetExtension(thumbnail.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(extension))
+                return BadRequest("Only JPG, JPEG, PNG files are allowed");
+
+            // ✅ Optional: size limit (5 MB)
+            if (thumbnail.Length > 5 * 1024 * 1024)
+                return BadRequest("Image size must be less than 5MB");
 
             int userId = UserContextHelper.GetUserId(User);
 
@@ -49,16 +58,16 @@ namespace BloggingApp.API.Controllers
                 Directory.CreateDirectory(uploadsFolder);
 
             // 2️⃣ Generate unique file name
-            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(thumbnail.FileName)}";
+            var fileName = $"{Guid.NewGuid()}{extension}";
             var filePath = Path.Combine(uploadsFolder, fileName);
 
-            // 3️⃣ Save image to disk
+            // 3️⃣ Save image
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await thumbnail.CopyToAsync(stream);
             }
 
-            // 4️⃣ Generate public URL
+            // 4️⃣ Generate public URL (deployment-safe)
             var imageUrl = $"{Request.Scheme}://{Request.Host}/uploads/blogs/{fileName}";
 
             // 5️⃣ Save blog
@@ -81,6 +90,37 @@ namespace BloggingApp.API.Controllers
                 thumbnailUrl = imageUrl
             });
         }
+
+
+
+        // =========================
+        // SEARCH BLOGS BY AUTHOR NAME (PUBLIC)
+        // =========================
+        [HttpGet("search/author/{authorName}")]
+        public async Task<IActionResult> SearchBlogsByAuthor(string authorName)
+        {
+            var blogs = await _context.Blogs
+                .Include(b => b.Author)
+                .Where(b => b.Author.Username.ToLower().Contains(authorName.ToLower()))
+                .OrderByDescending(b => b.CreatedAt)
+                .Select(b => new
+                {
+                    b.Id,
+                    b.Title,
+                    b.Category,
+                    b.ThumbnailUrl,
+                    b.LikesCount,
+                    b.CreatedAt,
+                    Author = b.Author.Username
+                })
+                .ToListAsync();
+
+            if (!blogs.Any())
+                return NotFound("No blogs found for this author");
+
+            return Ok(blogs);
+        }
+
 
 
         // =========================

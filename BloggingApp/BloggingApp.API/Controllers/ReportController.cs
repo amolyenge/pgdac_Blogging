@@ -58,21 +58,22 @@ namespace BloggingApp.API.Controllers
                     .ThenInclude(b => b.Author)
                 .Include(r => r.User)
                 .OrderByDescending(r => r.ReportedAt)
-                .Select(r => new
-                {
-                    r.Id,
-                    r.Reason,
-                    r.ReportedAt,
+               .Select(r => new
+               {
+                   r.Id,
+                   r.Reason,
+                   r.ReportedAt,
+                   r.IsResolved,
 
-                    Blog = new
-                    {
-                        r.Blog.Id,
-                        r.Blog.Title,
-                        Author = r.Blog.Author.Username
-                    },
+                   Blog = new
+                   {
+                       r.Blog.Id,
+                       r.Blog.Title,
+                       Author = r.Blog.Author.Username
+                   },
 
-                    ReportedBy = r.User.Username
-                })
+                   ReportedBy = r.User.Username
+               })
                 .ToListAsync();
 
             return Ok(reports);
@@ -95,13 +96,12 @@ namespace BloggingApp.API.Controllers
                     r.Id,
                     r.Reason,
                     r.ReportedAt,
+                    r.IsResolved,
 
                     Blog = new
                     {
                         r.Blog.Id,
                         r.Blog.Title,
-                        r.Blog.Content,
-                        r.Blog.ThumbnailUrl,
                         Author = r.Blog.Author.Username
                     },
 
@@ -116,22 +116,28 @@ namespace BloggingApp.API.Controllers
         }
 
         // =========================
-        // ADMIN DELETE REPORT BY ID
+        // ADMIN RESOLVE / UNRESOLVE REPORT
         // =========================
         [Authorize(Roles = "ADMIN")]
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteReport(int id)
+        [HttpPut("{id}/toggle-resolve")]
+        public async Task<IActionResult> ToggleResolveReport(int id)
         {
             var report = await _context.BlogReports.FindAsync(id);
 
             if (report == null)
                 return NotFound("Report not found");
 
-            _context.BlogReports.Remove(report);
+            report.IsResolved = !report.IsResolved;
             await _context.SaveChangesAsync();
 
-            return Ok("Report deleted successfully");
+            return Ok(new
+            {
+                message = report.IsResolved ? "Report marked as resolved" : "Report marked as unresolved",
+                reportId = report.Id,
+                isResolved = report.IsResolved
+            });
         }
+
 
     }
 }

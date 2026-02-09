@@ -1,6 +1,6 @@
-/* -------------------
-   GENERAL ADMIN PAGE
--------------------- */
+/* ===================== */
+/* ADMIN LAYOUT */
+/* ===================== */
 
 .admin-page {
   display: flex;
@@ -9,9 +9,9 @@
   background: #f5f7ff;
 }
 
-/* -------------------
-   LEFT SIDEBAR
--------------------- */
+/* ---------------------
+   SIDEBAR
+--------------------- */
 
 .admin-sidebar {
   width: 260px;
@@ -62,9 +62,9 @@
   border-left: 4px solid #3a5cff;
 }
 
-/* -------------------
-   RIGHT CONTENT AREA
--------------------- */
+/* ---------------------
+   MAIN CONTENT
+--------------------- */
 
 .admin-content {
   flex: 1;
@@ -83,9 +83,9 @@
   color: #2a2a2a;
 }
 
-/* -------------------
-   REPORT CARDS
--------------------- */
+/* ---------------------
+   REPORT CARD
+--------------------- */
 
 .report-card {
   border: 1px solid #cccccc;
@@ -98,7 +98,7 @@
 
 .report-card:hover {
   background: #fafafa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .report-card p {
@@ -123,9 +123,9 @@
   background: #c5303f;
 }
 
-/* -------------------
-   USER LIST CARDS
--------------------- */
+/* ---------------------
+   USER CARD
+--------------------- */
 
 .user-card {
   border: 1px solid #bdbdbd;
@@ -138,7 +138,7 @@
 
 .user-card:hover {
   background: #fafafa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .user-card p {
@@ -147,9 +147,64 @@
   color: #333;
 }
 
-/* -------------------
+/* ---------------------
+   TOGGLE BLOCK BUTTON
+--------------------- */
+
+.btn-toggle-block {
+  background: #ff9f1c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.btn-toggle-block:hover {
+  background: #e67e00;
+}
+
+/* ---------------------
+   SEARCH USERS BAR
+--------------------- */
+
+.search-users-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.search-users-bar input {
+  width: 240px;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-right: 8px;
+  font-size: 15px;
+}
+
+.btn-search-user {
+  background: #3a5cff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-search-user:hover {
+  background: #2e45cc;
+}
+
+/* ---------------------
    REMOVE USER SECTION
--------------------- */
+--------------------- */
 
 .admin-content label {
   display: block;
@@ -183,9 +238,9 @@
   background: #c5303f;
 }
 
-/* -------------------
+/* ---------------------
    STATUS / LOADING
--------------------- */
+--------------------- */
 
 .admin-content .status {
   font-size: 16px;
@@ -194,21 +249,61 @@
   text-align: center;
 }
 
-/* -------------------
-   SMALL RESPONSIVE TWEAKS
--------------------- */
+/* ---------------------
+   RESPONSIVE
+--------------------- */
 
 @media (max-width: 820px) {
   .admin-page {
     flex-direction: column;
   }
 
-  .admin-sidebar {
-    width: 100%;
-    margin-bottom: 14px;
-  }
-
+  .admin-sidebar,
   .admin-content {
     width: 100%;
   }
+}
+
+/* ------ Complaints Report Card ------ */
+
+.report-card {
+  border: 1px solid #cccccc;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: #fcfcfc;
+  transition: 0.2s ease;
+}
+
+.report-card:hover {
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Resolved reports appear lighter */
+.report-card.resolved {
+  opacity: 0.6;
+  background: #f7f7f7;
+}
+
+.report-card p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.btn-toggle-resolve {
+  margin-top: 10px;
+  background: #3a7cff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-toggle-resolve:hover {
+  background: #2b63d1;
 }

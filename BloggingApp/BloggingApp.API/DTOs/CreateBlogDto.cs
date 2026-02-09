@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace BloggingApp.API.DTOs
 {
@@ -12,5 +13,8 @@ namespace BloggingApp.API.DTOs
 
         [Required]
         public string Category { get; set; }
+
+        [Required]
+        public IFormFile Thumbnail { get; set; }
     }
 }

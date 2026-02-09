@@ -115,3 +115,4 @@ C:\Users\amol yenge\Desktop\Blogging_Application\BloggingApp\BloggingApp.API\obj
 C:\Users\amol yenge\Desktop\Blogging_Application\BloggingApp\BloggingApp.API\obj\Debug\net8.0\BloggingApp.API.genruntimeconfig.cache
 C:\Users\amol yenge\Desktop\Blogging_Application\BloggingApp\BloggingApp.API\obj\Debug\net8.0\ref\BloggingApp.API.dll
 C:\Users\amol yenge\Desktop\Blogging_Application\BloggingApp\BloggingApp.API\bin\Debug\net8.0\BloggingApp.API.staticwebassets.runtime.json
+C:\Users\amol yenge\Desktop\Blogging_Application\BloggingApp\BloggingApp.API\obj\Debug\net8.0\BloggingApp.API.sourcelink.json

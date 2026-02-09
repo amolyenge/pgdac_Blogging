@@ -17,9 +17,9 @@ namespace BloggingApp.API.Controllers
             _context = context;
         }
 
-        // =========================
+        
         // GET ALL USERS
-        // =========================
+        
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -38,9 +38,9 @@ namespace BloggingApp.API.Controllers
             return Ok(users);
         }
 
-        // =========================
+        
         // BLOCK / UNBLOCK USER
-        // =========================
+        
         [HttpPut("{id}/toggle-block")]
         public async Task<IActionResult> ToggleBlockUser(int id)
         {
@@ -54,9 +54,37 @@ namespace BloggingApp.API.Controllers
             return Ok(user.IsBlocked ? "User blocked" : "User unblocked");
         }
 
+
         // =========================
+        // SEARCH USERS BY AUTHOR NAME (ADMIN)
+        // =========================
+        [HttpGet("search/{authorName}")]
+        public async Task<IActionResult> SearchUsers(string authorName)
+        {
+            var users = await _context.Users
+                .Where(u => u.Username.ToLower().Contains(authorName.ToLower()))
+                .OrderBy(u => u.Username)
+                .Select(u => new
+                {
+                    u.Id,
+                    u.Username,
+                    u.Email,
+                    u.Role,
+                    u.IsBlocked,
+                    u.CreatedAt
+                })
+                .ToListAsync();
+
+            if (!users.Any())
+                return NotFound("No users found");
+
+            return Ok(users);
+        }
+
+
+
         // DELETE USER
-        // =========================
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

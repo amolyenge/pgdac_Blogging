@@ -52,6 +52,28 @@
         }
       }
     },
+    "/api/admin/users/search/{authorName}": {
+      "get": {
+        "tags": [
+          "AdminUser"
+        ],
+        "parameters": [
+          {
+            "name": "authorName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/admin/users/{id}": {
       "delete": {
         "tags": [
@@ -242,6 +264,7 @@
                 "required": [
                   "Category",
                   "Content",
+                  "Thumbnail",
                   "Title"
                 ],
                 "type": "object",
@@ -254,6 +277,10 @@
                   },
                   "Category": {
                     "type": "string"
+                  },
+                  "Thumbnail": {
+                    "type": "string",
+                    "format": "binary"
                   },
                   "thumbnail": {
                     "type": "string",
@@ -269,6 +296,9 @@
                   "style": "form"
                 },
                 "Category": {
+                  "style": "form"
+                },
+                "Thumbnail": {
                   "style": "form"
                 },
                 "thumbnail": {
@@ -287,6 +317,28 @@
       "get": {
         "tags": [
           "Blog"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/blogs/search/author/{authorName}": {
+      "get": {
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "authorName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -668,8 +720,10 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/reports/{id}/toggle-resolve": {
+      "put": {
         "tags": [
           "Report"
         ],

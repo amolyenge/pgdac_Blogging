@@ -77,7 +77,7 @@ builder.Services.AddScoped<JwtTokenGenerator>();
 // SWAGGER + JWT SUPPORT
 // =======================
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<GeminiAiService>();
+builder.Services.AddScoped<LanguageToolService>();
 
 
 builder.Services.AddSwaggerGen(c =>

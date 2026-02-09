@@ -52,6 +52,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BloggingApp.API.Controllers.AdminUserController",
+    "Method": "SearchUsers",
+    "RelativePath": "api/admin/users/search/{authorName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BloggingApp.API.Controllers.AiController",
     "Method": "GrammarCheck",
     "RelativePath": "api/ai/grammar-check",
@@ -152,6 +168,11 @@
       {
         "Name": "Category",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Thumbnail",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       },
       {
@@ -322,6 +343,22 @@
   },
   {
     "ContainingType": "BloggingApp.API.Controllers.BlogController",
+    "Method": "SearchBlogsByAuthor",
+    "RelativePath": "api/blogs/search/author/{authorName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BloggingApp.API.Controllers.BlogController",
     "Method": "GetTrendingBlogs",
     "RelativePath": "api/blogs/trending",
     "HttpMethod": "GET",
@@ -416,9 +453,9 @@
   },
   {
     "ContainingType": "BloggingApp.API.Controllers.ReportController",
-    "Method": "DeleteReport",
-    "RelativePath": "api/reports/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "ToggleResolveReport",
+    "RelativePath": "api/reports/{id}/toggle-resolve",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
