@@ -18,10 +18,7 @@ namespace BloggingApp.API.Controllers
         {
             _context = context;
         }
-
-        // =========================
         // REPORT BLOG (USER)
-        // =========================
         [Authorize]
         [HttpPost("{blogId}")]
         public async Task<IActionResult> ReportBlog(int blogId, ReportBlogDto dto)
@@ -46,9 +43,7 @@ namespace BloggingApp.API.Controllers
             return Ok("Blog reported successfully");
         }
 
-        // =========================
         // ADMIN VIEW ALL REPORTS
-        // =========================
         [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public async Task<IActionResult> GetAllReports()
@@ -79,9 +74,7 @@ namespace BloggingApp.API.Controllers
             return Ok(reports);
         }
 
-        // =========================
         // ADMIN VIEW REPORT BY ID
-        // =========================
         [Authorize(Roles = "ADMIN")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetReportById(int id)
@@ -115,9 +108,7 @@ namespace BloggingApp.API.Controllers
             return Ok(report);
         }
 
-        // =========================
         // ADMIN RESOLVE / UNRESOLVE REPORT
-        // =========================
         [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}/toggle-resolve")]
         public async Task<IActionResult> ToggleResolveReport(int id)
