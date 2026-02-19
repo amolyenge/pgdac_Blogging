@@ -19,9 +19,7 @@ namespace BloggingApp.API.Controllers
             _context = context;
         }
 
-        // =========================
         // CREATE BLOG (USER)
-        // =========================
         [Authorize]
         [HttpPost]
         [Consumes("multipart/form-data")]
@@ -33,20 +31,20 @@ namespace BloggingApp.API.Controllers
             if (thumbnail == null || thumbnail.Length == 0)
                 return BadRequest("Thumbnail image is required");
 
-            // ✅ Validate file extension
+            // Validate file extension
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var extension = Path.GetExtension(thumbnail.FileName).ToLower();
 
             if (!allowedExtensions.Contains(extension))
                 return BadRequest("Only JPG, JPEG, PNG files are allowed");
 
-            // ✅ Optional: size limit (5 MB)
+            // Optional: size limit (5 MB)
             if (thumbnail.Length > 5 * 1024 * 1024)
                 return BadRequest("Image size must be less than 5MB");
 
             int userId = UserContextHelper.GetUserId(User);
 
-            // 1️⃣ Ensure upload folder exists
+            // Ensure upload folder exists
             var uploadsFolder = Path.Combine(
                 Directory.GetCurrentDirectory(),
                 "wwwroot",
@@ -57,20 +55,20 @@ namespace BloggingApp.API.Controllers
             if (!Directory.Exists(uploadsFolder))
                 Directory.CreateDirectory(uploadsFolder);
 
-            // 2️⃣ Generate unique file name
+            //Generate unique file name
             var fileName = $"{Guid.NewGuid()}{extension}";
             var filePath = Path.Combine(uploadsFolder, fileName);
 
-            // 3️⃣ Save image
+            //Save image
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await thumbnail.CopyToAsync(stream);
             }
 
-            // 4️⃣ Generate public URL (deployment-safe)
+            //Generate public URL (deployment-safe)
             var imageUrl = $"{Request.Scheme}://{Request.Host}/uploads/blogs/{fileName}";
 
-            // 5️⃣ Save blog
+            //Save blog
             var blog = new Blog
             {
                 Title = dto.Title,
@@ -92,10 +90,7 @@ namespace BloggingApp.API.Controllers
         }
 
 
-
-        // =========================
         // SEARCH BLOGS BY AUTHOR NAME (PUBLIC)
-        // =========================
         [HttpGet("search/author/{authorName}")]
         public async Task<IActionResult> SearchBlogsByAuthor(string authorName)
         {
@@ -122,10 +117,7 @@ namespace BloggingApp.API.Controllers
         }
 
 
-
-        // =========================
         // GET ALL BLOGS (PUBLIC)
-        // =========================
         [HttpGet]
         public async Task<IActionResult> GetAllBlogs()
         {
@@ -137,7 +129,7 @@ namespace BloggingApp.API.Controllers
                     b.Id,
                     b.Title,
                     b.Category,
-                    b.ThumbnailUrl,          // ✅ NEW
+                    b.ThumbnailUrl,        
                     b.LikesCount,
                     b.CreatedAt,
                     Author = b.Author.Username
@@ -147,9 +139,8 @@ namespace BloggingApp.API.Controllers
             return Ok(blogs);
         }
 
-        // =========================
+    
         // GET BLOG BY ID (PUBLIC)
-        // =========================
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {
@@ -162,7 +153,7 @@ namespace BloggingApp.API.Controllers
                     b.Title,
                     b.Content,
                     b.Category,
-                    b.ThumbnailUrl,          // ✅ NEW
+                    b.ThumbnailUrl,        
                     b.LikesCount,
                     b.CreatedAt,
                     Author = b.Author.Username
@@ -175,9 +166,7 @@ namespace BloggingApp.API.Controllers
             return Ok(blog);
         }
 
-        // =========================
         // UPDATE OWN BLOG (USER)
-        // =========================
         [Authorize]
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
@@ -230,10 +219,7 @@ namespace BloggingApp.API.Controllers
         }
 
 
-
-        // =========================
         // DELETE OWN BLOG (USER)
-        // =========================
         [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBlog(int id)
@@ -254,9 +240,7 @@ namespace BloggingApp.API.Controllers
             return Ok("Blog deleted successfully");
         }
 
-        // =========================
         // CATEGORY-WISE BLOGS
-        // =========================
         [HttpGet("category/{category}")]
         public async Task<IActionResult> GetBlogsByCategory(string category)
         {
@@ -269,7 +253,7 @@ namespace BloggingApp.API.Controllers
                     b.Id,
                     b.Title,
                     b.Category,
-                    b.ThumbnailUrl,          // ✅ NEW
+                    b.ThumbnailUrl,      
                     b.CreatedAt,
                     Author = b.Author.Username
                 })
@@ -278,9 +262,7 @@ namespace BloggingApp.API.Controllers
             return Ok(blogs);
         }
 
-        // =========================
         // TRENDING BLOGS
-        // =========================
         [HttpGet("trending")]
         public async Task<IActionResult> GetTrendingBlogs()
         {
@@ -293,7 +275,7 @@ namespace BloggingApp.API.Controllers
                     b.Id,
                     b.Title,
                     b.Category,
-                    b.ThumbnailUrl,          // ✅ NEW
+                    b.ThumbnailUrl, 
                     b.LikesCount,
                     Author = b.Author.Username
                 })
@@ -302,9 +284,7 @@ namespace BloggingApp.API.Controllers
             return Ok(blogs);
         }
 
-        // =========================
         // LIKE BLOG (USER)
-        // =========================
         [Authorize]
         [HttpPost("{id}/like")]
         public async Task<IActionResult> LikeBlog(int id)
@@ -335,9 +315,7 @@ namespace BloggingApp.API.Controllers
             return Ok("Blog liked");
         }
 
-        // =========================
         // ADMIN DELETE ANY BLOG
-        // =========================
         [Authorize(Roles = "ADMIN")]
         [HttpDelete("admin/{id}")]
         public async Task<IActionResult> AdminDeleteBlog(int id)
@@ -353,9 +331,7 @@ namespace BloggingApp.API.Controllers
             return Ok("Blog deleted by admin");
         }
 
-        // =========================
         // SEARCH BLOGS BY AUTHOR
-        // =========================
         [HttpGet("search/{authorName}")]
         public async Task<IActionResult> SearchByAuthor(string authorName)
         {
@@ -367,7 +343,7 @@ namespace BloggingApp.API.Controllers
                     b.Id,
                     b.Title,
                     b.Category,
-                    b.ThumbnailUrl,          // ✅ NEW
+                    b.ThumbnailUrl,          
                     b.CreatedAt,
                     Author = b.Author.Username
                 })
@@ -376,9 +352,7 @@ namespace BloggingApp.API.Controllers
             return Ok(blogs);
         }
 
-        // =========================
         // GET BLOGS BY AUTHOR ID (PUBLIC)
-        // =========================
         [HttpGet("author/{userId}")]
         public async Task<IActionResult> GetBlogsByAuthor(int userId)
         {
