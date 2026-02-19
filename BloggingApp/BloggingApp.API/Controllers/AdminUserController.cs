@@ -54,10 +54,7 @@ namespace BloggingApp.API.Controllers
             return Ok(user.IsBlocked ? "User blocked" : "User unblocked");
         }
 
-
-        // =========================
         // SEARCH USERS BY AUTHOR NAME (ADMIN)
-        // =========================
         [HttpGet("search/{authorName}")]
         public async Task<IActionResult> SearchUsers(string authorName)
         {
