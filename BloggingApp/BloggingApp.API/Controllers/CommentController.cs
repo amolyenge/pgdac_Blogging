@@ -19,9 +19,7 @@ namespace BloggingApp.API.Controllers
             _context = context;
         }
 
-        // =========================
         // ADD COMMENT (USER)
-        // =========================
         [Authorize]
         [HttpPost("{blogId}")]
         public async Task<IActionResult> AddComment(int blogId, CreateCommentDto dto)
@@ -45,9 +43,7 @@ namespace BloggingApp.API.Controllers
             return Ok("Comment added");
         }
 
-        // =========================
         // GET COMMENTS BY BLOG
-        // =========================
         [HttpGet("blog/{blogId}")]
         public async Task<IActionResult> GetCommentsByBlog(int blogId)
         {
