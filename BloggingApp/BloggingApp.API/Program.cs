@@ -9,9 +9,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =======================
-// DATABASE (MySQL)
-// =======================
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySql(
@@ -20,14 +17,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     );
 });
 
-// =======================
-// CONTROLLERS
-// =======================
+
 builder.Services.AddControllers();
 
-// =======================
-// CORS (React Frontend)
-// =======================
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
@@ -40,9 +32,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-// =======================
-// JWT AUTHENTICATION
-// =======================
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
@@ -67,15 +56,9 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// =======================
-// DEPENDENCY INJECTION
-// =======================
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<JwtTokenGenerator>();
 
-// =======================
-// SWAGGER + JWT SUPPORT
-// =======================
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<LanguageToolService>();
 
@@ -115,25 +98,14 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-
-
-// =======================
-// BUILD APP
-// =======================
 var app = builder.Build();
 
-// =======================
-// SEED ADMIN USER
-// =======================
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     DataSeeder.SeedAdmin(context);
 }
 
-// =======================
-// MIDDLEWARE
-// =======================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -143,9 +115,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-
-
-// ✅ CORS MUST BE HERE
 app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
