@@ -15,7 +15,7 @@ namespace BloggingApp.API.Services
                 UseDefaultCredentials = false, 
                 Credentials = new NetworkCredential(
                     "amolyenge.sde2025@gmail.com",
-                    "epoawxmrxqewmmqh"
+                    "_****app_password*******_"
                 )
             };
 
